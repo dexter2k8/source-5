@@ -1,0 +1,53 @@
+﻿<!DOCTYPE HTML>
+<html>
+   <head>
+   <link rel="stylesheet" href="http://www.umediaserver.net/umediaserver/unreal_html5_player_styles_v1.css" />
+   <script src="http://www.umediaserver.net/umediaserver/unreal_html5_player_script_v2.js" type="text/javascript"></script>
+   </head>
+
+   <body>
+   
+   <div>
+   Media Source Extensions (MSE) player<br><br>This player plays live near real time audio/video on any OS and mobile device, <b>except iOS</b>, in all major browsers. This is original H264 video encoded by IP camera; server doesn't do any transcoding.
+   This is <b>NOT</b> an HLS streaming. This is fragmented mp4 streaming over WebSocket to Media Source Extensions of HTML5 video element.<br>
+   <A style="COLOR: darkgreen;" href="demohtml5MSEplayerSecure.html">Same page with secure WebSocket</A><br><br>
+   Use slider to seek in the local buffer which contains 1 last minute of live video.<br><br>
+   </div>
+   
+   <div>
+
+   <UnrealHTML5VideoPlayer id="UnrealPlayer1"></UnrealHTML5VideoPlayer> <!--This is the player element, don't modify anything on this line except the unique ID of the player-->
+
+   <!--
+   The below function call creates Unreal HTML5 player:
+   RunPlayer(strVideoPlayerID, intVideoWidth, intVideoHeight, strServerIP, intServerPort, boolSecureWebsocket, strOrArrayLiveAlias, strSecureToken, boolAutoPlay, boolShowControls, intLocalSeekMinutes, strPosterURL, boolBigButtons);
+   
+   strVideoPlayerID:          ID of player element on the webpage. If you have multiple players on the webpage, be sure to assign them different IDs.
+   intVideoWidth:             Width of player in pixels.
+   intVideoHeight:            Height of player in pixels.
+   strServerIP:               IP Address of Unreal Media Server.
+   intServerPort:             Port of Unreal Media Server, either for regular or for secure connections.
+   boolSecureWebsocket:       If true then you must have a valid SSL certificate configured on the server computer.
+   strOrArrayLiveAlias:       Alias of the live broadcast. Or an array of alias names for adaptive streaming. The array should have highest bitrate alias coming first and lowest bitrate alias coming last.
+   strSecureToken:            Secure token such as Session ID for Session-based authentication. Empty string means no secure token is used.
+   boolAutoPlay:              Whether to start playing as soon as webpage loads. Ignored and set to false when playing on mobile devices. For Chrome's autoplay policy - refer to http://www.umediaserver.net/phpBB3/viewtopic.php?f=28&t=3581
+   boolShowControls:          Whether to display controls. If boolAutoPlay is false then this parameter is ignored and set to true.
+   intLocalSeekMinutes:       Amount of minutes to keep in local buffer. This parameter is ignored if there is an active server-side timeshift. User will be able to seek in live stream within this time period. Recommended setting is 1-10 minutes. Browsers may evict data earlier than this setting, based on stream bitrate.
+   strPosterURL:              URL of the poster image. Empty string means no poster image is used.
+   boolBigButtons:            Whether to display regular or large buttons.
+   -->
+
+   <script type="text/javascript">
+       if ("MediaSource" in window && "WebSocket" in window)
+       {
+           RunPlayer("UnrealPlayer1", 800, 450, "179.235.83.181", 5119, false, "Samsung", "", true, true, 1, "", false);
+           document.getElementById("UnrealPlayer1_Video").muted = true; // Muting the video element, this is video-only stream anyway. A muted attribute helps to overcome Chrome's autoplay policy, and is not always needed, as described at http://www.umediaserver.net/phpBB3/viewtopic.php?f=28&t=3581
+       }
+       else
+           document.getElementById("UnrealPlayer1").innerHTML = "Media Source Extensions or Websockets are not supported in your browser.";
+   </script>
+   
+   </div>
+      
+   </body>
+</html>
