@@ -5,8 +5,8 @@
 
   <meta charset="utf-8">
   <title>Unreal Media Server WebRTC player</title>
-  <script src="http://www.umediaserver.net/umediaserver/webrtcadapter.js"></script>
-  <script src="http://www.umediaserver.net/umediaserver/unrealwebrtcplayer.js"></script>
+  <script src="webrtcadapter.js"></script>
+  <script src="unrealwebrtcplayer.js"></script>
 
   <script type="text/javascript">
 
@@ -20,7 +20,7 @@
 
   <div id="container" align="center">
 
-    <h1 style="color:green">ONLINE HOST</h1>
+    <h1 style="color:purple">ONLINE HOST</h1>
 
     Unreal Media Server WebRTC player<br><br>This player plays live near real time audio/video on any OS and mobile
     device, in all major browsers. This is original H264 video encoded by IP camera; server doesn't do any transcoding.
@@ -35,7 +35,7 @@
 
     <script type="text/javascript">
 
-      webrtcPlayer = new UnrealWebRTCPlayer("remoteVideo", "Samsung", "", "179.235.83.181", "5119", false, true, "tcp");
+      webrtcPlayer = new UnrealWebRTCPlayer("remoteVideo", "Samsung", "", "179.235.83.181", "443", true, true, "tcp");
 
 
       webrtcPlayer.Play();    
