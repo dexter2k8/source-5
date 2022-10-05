@@ -4,15 +4,7 @@
 <head>
 
   <meta charset="utf-8">
-  <title>Unreal Media Server WebRTC player</title>
-  <script src="webrtcadapter.js"></script>
-  <script src="unrealwebrtcplayer.js"></script>
-
-  <script type="text/javascript">
-
-    var webrtcPlayer = null;
-
-  </script>
+  <title>WebRTC player</title>
 
 </head>
 
@@ -20,31 +12,14 @@
 
   <div id="container" align="center">
 
-    <h1 style="color:purple">ONLINE HOST</h1>
+    <h1 style="color:green"> WebRTC player</h1>
+    <p>
 
-    Unreal Media Server WebRTC player<br><br>This player plays live near real time audio/video on any OS and mobile
-    device, in all major browsers. This is original H264 video encoded by IP camera; server doesn't do any transcoding.
-    <br>
-    <a href="./local.html">Local Host</a>
-    <br>
+      This player plays live near real time audio/video on any OS and mobile device, in all major browsers. This is
+      original H264 video encoded by IP camera; server doesn't do any transcoding.
+    </p>
 
-
-
-    <video style="background-color:black" id="remoteVideo" width="800" height="450" autoplay playsinline controls
-      muted></video>
-
-    <script type="text/javascript">
-
-      webrtcPlayer = new UnrealWebRTCPlayer("remoteVideo", "Samsung", "", "179.235.83.181", "443", true, true, "tcp");
-
-
-      webrtcPlayer.Play();    
-    </script>
-
-  </div>
-
-
-  <div><iframe width="640" height="480" src="https://rtsp.me/embed/2E83ffsK/" frameborder="0" allowfullscreen></iframe>
+    <iframe width="640" height="480" src="https://rtsp.me/embed/2E83ffsK/" frameborder="0" allowfullscreen></iframe>
     <p align="right">powered by <a href="https://rtsp.me" title="RTSP.ME - Free website RTSP video steaming service"
         target="_blank">rtsp.me</a></p>
   </div>
